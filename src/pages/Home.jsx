@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getTrendingMovies } from "../services/apiservices";
+import { getTrendingMovies } from "../services/apiServices";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
     getTrendingMovies()
       .then((data) => {
         console.log(data);
-        setMovies(data.slice(0, 8));
+        setMovies(data.slice(0, 4));
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
