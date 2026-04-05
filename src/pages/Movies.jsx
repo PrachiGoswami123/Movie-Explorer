@@ -69,12 +69,24 @@ function Movies() {
           No Movies Found
         </p>
       ) : (
-        <div>
+        <div className="max-w-7xl mx-auto px-4 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
           {filteredMovies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
         </div>
       )}
+      {/* Pagination */}
+      <div className="flex justify-center items-center mt-8 gap-4">
+        <button
+          onClick={() => page > 1 && setPage(page - 1)}
+          className={`px-4 py-2 rounded ${page === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-blue-600 text-white hover:bg-blue-700"}`}
+        >
+          Previous
+        </button>
+        <span className="font-semibold">Page {page}</span>
+        <button  onClick={() =>setPage(page + 1)}
+          className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">Next</button>
+      </div>
     </div>
   );
 }
